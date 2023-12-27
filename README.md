@@ -2,8 +2,8 @@
 
 ## Packages used
 
-** Riverpod for state management
-** Hive for local storage
+### - Riverpod for state management
+### - Hive for local storage
 
 ## Features
 
