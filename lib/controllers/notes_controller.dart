@@ -10,7 +10,7 @@ class NoteNotifier extends StateNotifier<List<Note>> {
   }) : super([]);
 
   void fetchNotes() {
-    state = noteDB.fetchNotes();
+    state = noteDB.fetchNotes()!.toList();
   }
 
   FutureVoid addNote({Note? note}) async {
@@ -23,8 +23,8 @@ class NoteNotifier extends StateNotifier<List<Note>> {
     fetchNotes();
   }
 
-  FutureVoid deleteNotes(int? key) async {
-    await noteDB.deleteNote(key);
+  FutureVoid deleteNote(Note? note) async {
+    await noteDB.deleteNote(note);
     fetchNotes();
   }
 
@@ -34,7 +34,7 @@ class NoteNotifier extends StateNotifier<List<Note>> {
       fetchNotes();
     } else {
       state = noteDB
-          .fetchNotes()
+          .fetchNotes()!
           .where((element) =>
               element.title!.toLowerCase().contains(query) ||
               element.content!.toLowerCase().contains(query))

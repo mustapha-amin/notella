@@ -144,7 +144,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                         ref
                                             .read(noteStateNotifierProvider
                                                 .notifier)
-                                            .deleteNotes(index);
+                                            .deleteNote(
+                                                (notes[index]));
                                       },
                                       child: const Text("Yes"),
                                     ),

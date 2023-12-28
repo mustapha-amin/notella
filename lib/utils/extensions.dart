@@ -42,12 +42,9 @@ extension DateTimeExtension on DateTime {
       'Dec'
     ];
 
-    if (DateTime.now().minute.compareTo(minute) == 0) {
-      return "Just now";
-    } else if (DateTime.now().day.compareTo(day) == 0 &&
-        DateTime.now().minute.compareTo(minute) == -1) {
+    if (DateTime.now().day.compareTo(day) == 0) {
       return "Today";
-    } else if (compareTo(DateTime.now()) == -1) {
+    } else if (day.compareTo(DateTime.now().day) == -1) {
       return "Yesterday";
     } else {
       if (abbreviated!) {
