@@ -49,7 +49,7 @@ class _ViewNoteState extends ConsumerState<ViewNote> {
   @override
   Widget build(BuildContext context) {
     return PopScope(
-      canPop: changesMade ? false : true,
+      canPop: !changesMade,
       onPopInvoked: (_) {
         changesMade
             ? showDialog(
@@ -106,7 +106,7 @@ class _ViewNoteState extends ConsumerState<ViewNote> {
                       ref
                           .read(noteStateNotifierProvider.notifier)
                           .editNote(widget.id, editedNote);
-                      context.pop();
+                      Navigator.maybePop(context);
                     },
                     icon: const Icon(
                       Icons.check,
