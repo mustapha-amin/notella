@@ -9,20 +9,24 @@ class NoteTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      tileColor: const Color(0xFF005C5C), // 0xFF4B0082
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      title: Text(
-        note.title!,
-        style: kTextStyle(15, color: Colors.black, fontWeight: FontWeight.bold),
-      ),
-      subtitle: Text(note.content!,
-          style: kTextStyle(12, color: Colors.black)
-              .copyWith(overflow: TextOverflow.ellipsis)),
-      trailing: Text(
-          "${note.timeCreated!.getFormattedDate()}  ${note.timeCreated!.formattedTime}"),
-    ).padAll(10);
+    return Card(
+      color: Colors.grey[800],
+      child: ListTile(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        title: Text(
+          note.title!,
+          style:
+              kTextStyle(16, color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        subtitle: Text(note.content!,
+            style: kTextStyle(12, color: Colors.grey)
+                .copyWith(overflow: TextOverflow.ellipsis)),
+        trailing: Text(
+            "${note.timeCreated!.getFormattedDate()}  ${note.timeCreated!.formattedTime}",
+            style: kTextStyle(12, color: Colors.grey)),
+      ).padAll(5),
+    ).padX(3);
   }
 }

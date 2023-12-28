@@ -44,7 +44,8 @@ extension DateTimeExtension on DateTime {
 
     if (DateTime.now().minute.compareTo(minute) == 0) {
       return "Just now";
-    } else if (DateTime.now().day.compareTo(day) == 0) {
+    } else if (DateTime.now().day.compareTo(day) == 0 &&
+        DateTime.now().minute.compareTo(minute) == -1) {
       return "Today";
     } else if (compareTo(DateTime.now()) == -1) {
       return "Yesterday";

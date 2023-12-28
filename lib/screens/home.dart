@@ -129,9 +129,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                           ),
                           key: UniqueKey(),
                           onDismissed: (_) {
-                            ref.invalidate(noteStateNotifierProvider);
                             showDialog(
                               context: context,
+                              barrierDismissible: false,
                               builder: (context) {
                                 return AlertDialog(
                                   title: const Text("Delete note"),
@@ -173,7 +173,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       ),
       floatingActionButton: fabIsVisible
           ? FloatingActionButton(
-              backgroundColor: const Color.fromARGB(255, 5, 103, 7),
               onPressed: () {
                 context.push(const AddNote());
               },
