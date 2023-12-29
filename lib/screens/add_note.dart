@@ -24,12 +24,12 @@ class _AddNoteState extends ConsumerState<AddNote> {
   void initState() {
     super.initState();
     titleController.addListener(() {
-      titleController.text.isNotEmpty && !saveBttnVisible
+      titleController.text.isNotEmpty
           ? setState(() => saveBttnVisible = true)
           : setState(() => saveBttnVisible = false);
     });
     contentController.addListener(() {
-      contentController.text.isNotEmpty && !saveBttnVisible
+      contentController.text.isNotEmpty
           ? setState(() => saveBttnVisible = true)
           : setState(() => saveBttnVisible = false);
     });
@@ -43,6 +43,7 @@ class _AddNoteState extends ConsumerState<AddNote> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Add note"),
+        foregroundColor: Colors.white,
         centerTitle: true,
         actions: [
           IconButton(
