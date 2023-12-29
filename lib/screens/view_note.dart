@@ -21,6 +21,10 @@ class _ViewNoteState extends ConsumerState<ViewNote> {
   bool changesMade = false;
   Note? note = Note(title: '', content: '', timeCreated: DateTime.now());
 
+  bool noteIsValid() {
+    return titleController.text.isNotEmpty || contentController.text.isNotEmpty;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -49,9 +53,9 @@ class _ViewNoteState extends ConsumerState<ViewNote> {
   @override
   Widget build(BuildContext context) {
     return PopScope(
-      canPop: !changesMade,
+      canPop: !changesMade && noteIsValid(),
       onPopInvoked: (_) {
-        changesMade
+        changesMade && noteIsValid()
             ? showDialog(
                 context: context,
                 builder: (context) {
@@ -66,7 +70,7 @@ class _ViewNoteState extends ConsumerState<ViewNote> {
                               widget.id,
                               note!.copyWith(
                                 title: titleController.text,
-                                content: titleController.text,
+                                content: contentController.text,
                               ));
                           setState(() {
                             changesMade = false;
@@ -96,7 +100,7 @@ class _ViewNoteState extends ConsumerState<ViewNote> {
         appBar: AppBar(
           foregroundColor: Colors.white,
           actions: [
-            !isReadOnly && changesMade
+            !isReadOnly && changesMade && noteIsValid()
                 ? IconButton(
                     onPressed: () {
                       Note editedNote = note!.copyWith(
@@ -131,7 +135,9 @@ class _ViewNoteState extends ConsumerState<ViewNote> {
                 readOnly: isReadOnly,
                 decoration: InputDecoration(
                   border: InputBorder.none,
-                  hintStyle: kTextStyle(24, fontWeight: FontWeight.bold),
+                  hintText: "Title",
+                  hintStyle: kTextStyle(25,
+                      fontWeight: FontWeight.bold, color: Colors.grey),
                 ),
                 onTap: () {
                   setState(() {
@@ -147,7 +153,9 @@ class _ViewNoteState extends ConsumerState<ViewNote> {
                 readOnly: isReadOnly,
                 decoration: InputDecoration(
                   border: InputBorder.none,
-                  hintStyle: kTextStyle(16, fontWeight: FontWeight.bold),
+                  hintText: "Content...",
+                  hintStyle: kTextStyle(16,
+                      fontWeight: FontWeight.bold, color: Colors.grey),
                 ),
                 onTap: () {
                   setState(() {

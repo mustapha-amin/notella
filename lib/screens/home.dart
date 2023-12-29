@@ -111,22 +111,25 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                           context.push(ViewNote(id: index));
                         },
                         child: Dismissible(
+                          
                           background: Container(
+                            margin: const EdgeInsets.symmetric(horizontal: 5),
                             height: context.screenHeight * 12,
                             color: Colors.red,
                             child: const Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [Icon(Icons.delete_forever)],
                             ),
-                          ),
+                          ).padX(5),
                           secondaryBackground: Container(
+                            margin: const EdgeInsets.symmetric(horizontal: 5),
                             height: context.screenHeight * 12,
                             color: Colors.red,
                             child: const Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [Icon(Icons.delete_forever)],
                             ),
-                          ),
+                          ).padX(5),
                           key: UniqueKey(),
                           onDismissed: (_) {
                             showDialog(
@@ -144,8 +147,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                         ref
                                             .read(noteStateNotifierProvider
                                                 .notifier)
-                                            .deleteNote(
-                                                (notes[index]));
+                                            .deleteNote((notes[index]));
                                       },
                                       child: const Text("Yes"),
                                     ),

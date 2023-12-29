@@ -11,10 +11,10 @@ class NoteTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: Colors.grey[800],
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: ListTile(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
         title: Text(
           note!.title!,
           style:

@@ -24,12 +24,12 @@ class _AddNoteState extends ConsumerState<AddNote> {
   void initState() {
     super.initState();
     titleController.addListener(() {
-      titleController.text.isNotEmpty
+      titleController.text.isNotEmpty && !saveBttnVisible
           ? setState(() => saveBttnVisible = true)
           : setState(() => saveBttnVisible = false);
     });
     contentController.addListener(() {
-      contentController.text.isNotEmpty
+      contentController.text.isNotEmpty && !saveBttnVisible
           ? setState(() => saveBttnVisible = true)
           : setState(() => saveBttnVisible = false);
     });
