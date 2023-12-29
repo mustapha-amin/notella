@@ -13,4 +13,4 @@
 ### - Fetch notes
 ### - Search notes
 
-![Code_wAxhQGbjni](https://github.com/mustapha-amin/notella/assets/70119794/bfe3c834-acb7-4c7b-ba65-eef21e472c7c)
+![explorer_KBq77EQMQc](https://github.com/mustapha-amin/notella/assets/70119794/ce952718-0c4a-45d1-b434-2bb6fe719d55)
