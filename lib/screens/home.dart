@@ -110,8 +110,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                         onTap: () {
                           context.push(ViewNote(id: index));
                         },
-                        child: Dismissible(
-                          
+                        child: Dismissible(                      
                           background: Container(
                             margin: const EdgeInsets.symmetric(horizontal: 5),
                             height: context.screenHeight * 12,
